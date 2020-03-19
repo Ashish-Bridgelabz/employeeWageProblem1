@@ -1,4 +1,4 @@
-#!/bin/bash -x
+!/bin/bash -x
 echo "Welcome to employee wages problem"
 IS_PRESENT=1
 IS_PART_TIME=1
@@ -13,7 +13,7 @@ totaWorkingDays=0
 salary=0
 workHrs=0
 randomCheck=$((RANDOM%3))
-#CALCULATE DAILY EMPLOYEE WAGE 
+#CALCULATE DAILY EMPLOYEE WAGE
 if(($IS_PRESENT == $randomCheck))
 	then
 		empHrs=8
@@ -21,7 +21,7 @@ if(($IS_PRESENT == $randomCheck))
 	else
 		salary=0
 fi
-#ADD PARTTIME AND FULLTIME EMPLOYEE WAGE BY USING CASE STATEMENT 
+#ADD PARTTIME AND FULLTIME EMPLOYEE WAGE BY USING CASE STATEMENT
 function getWorkingHours()
 {
 	case $1 in
@@ -43,7 +43,7 @@ function calcDailyWage()
 	wage=$(($workHrs*$EMP_RATE_PER_HR))
 	echo $wage
 }
-#CALCULATING WAGE TILL NUMBER OF WORKING DAYS DAYS ITS REACH FOR A MONTH
+#CALCULATING WAGE TILL NUMBER OF WORKING DAYS OR DAYS ITS REACH FOR A MONTH
 while [[ $totalWorkingDays -lt $MAX_WORKING_DAYS && $totalEmpHrs -lt $MAX_WORKING_HR ]]
 do
 	((totalWorkingDays++))
@@ -53,3 +53,4 @@ do
 done
 totalSalary="$( calcDailyWage $totalEmpHrs )"
 echo "Daily Wage "${empDailyWage[@]}
+echo "All Keys "${!empDailyWage[@]}
